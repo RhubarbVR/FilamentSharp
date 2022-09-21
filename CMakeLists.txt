@@ -11,6 +11,8 @@ project(TNT)
 # ==================================================================================================
 # Options
 # ==================================================================================================
+option(FILAMENT_ENABLE_DOTNET "Compile .net projects" ON)
+
 option(FILAMENT_USE_EXTERNAL_GLES3 "Experimental: Compile Filament against OpenGL ES 3" OFF)
 
 option(FILAMENT_USE_SWIFTSHADER "Compile Filament against SwiftShader" OFF)
@@ -729,6 +731,11 @@ if (IS_HOST_PLATFORM)
     add_subdirectory(${TOOLS}/roughness-prefilter)
     add_subdirectory(${TOOLS}/specular-color)
     add_subdirectory(${TOOLS}/uberz)
+	
+	
+    if (FILAMENT_ENABLE_DOTNET)
+        add_subdirectory(${FILAMENT}/dotnet/filament)
+    endif()
 endif()
 
 # Generate exported executables for cross-compiled builds (Android, WebGL, and iOS)

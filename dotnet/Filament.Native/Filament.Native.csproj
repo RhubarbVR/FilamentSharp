@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(Configuration)' == 'Debug' AND '$(OS)' == 'Unix'">
+        <Content Include="..\..\out\Build\dotnet\filament\Debug\libfilament-dotnet.so">
+            <Link>libfilament-dotnet.so</Link>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Configuration)' == 'Debug' AND '$(OS)' == 'Windows_NT'">
+        <Content Include="..\..\out\Build\dotnet\filament\Debug\filament-dotnet.dll">
+            <Link>libfilament-dotnet.dll</Link>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Configuration)' == 'Release' AND '$(OS)' == 'Unix'">
+        <Content Include="..\..\out\Build\dotnet\filament\Release\libfilament-dotnet.so">
+            <Link>libfilament-dotnet.so</Link>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Configuration)' == 'Release' AND '$(OS)' == 'Windows_NT'">
+        <Content Include="..\..\out\Build\dotnet\filament\Release\filament-dotnet.dll">
+            <Link>libfilament-dotnet.dll</Link>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+</Project>
